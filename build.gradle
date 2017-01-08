@@ -41,7 +41,7 @@ license {
 
     ext.name = "$name"
     ext.organization = 'Sandstone (https://github.com/ProjectSandstone)'
-    ext.description = "Simply create and manager Minecraft GUIs"
+    ext.description = "Create and manage Minecraft GUIs"
     ext.url = 'https://github.com/ProjectSandstone/GUIHelper2'
     ext.year = Calendar.getInstance().get(Calendar.YEAR)
 
