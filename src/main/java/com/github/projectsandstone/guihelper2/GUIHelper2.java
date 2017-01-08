@@ -41,7 +41,6 @@ public class GUIHelper2 {
 
     public GUIHelper2(Platform platform) {
         this.platform = platform;
-        this.platform.linkRegistries();
     }
 
 
