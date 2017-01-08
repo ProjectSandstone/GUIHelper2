@@ -1,0 +1,64 @@
+plugins {
+    id 'com.github.hierynomus.license' version '0.13.1'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
+group 'com.github.projectsandstone'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'license'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+license {
+    header rootProject.file("LICENSE_HEADER")
+}
+
+
+sourceCompatibility = 1.8
+
+// Tasks
+jar {
+    from "$rootProject.rootDir/LICENSE"
+
+    manifest {
+        attributes 'Implementation-Title': baseName,
+                'Implementation-Version': version
+    }
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+license {
+    String name = project.getName()
+
+    ext.name = "$name"
+    ext.organization = 'Sandstone (https://github.com/ProjectSandstone)'
+    ext.description = "Simply create and manager Minecraft GUIs"
+    ext.url = 'https://github.com/ProjectSandstone/GUIHelper2'
+    ext.year = Calendar.getInstance().get(Calendar.YEAR)
+
+    exclude "**/*.info"
+    exclude "**/*.md"
+    exclude "res/**"
+    exclude "src/main/resources/**"
+    exclude "src/test/resources/**"
+
+    header rootProject.file('LICENSE_HEADER')
+
+    sourceSets = project.sourceSets
+
+    ignoreFailures false
+    strictCheck true
+
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+    }
+}
